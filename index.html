@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Transformation</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body>
+    <div class="w-screen h-screen flex items-center justify-center bg-gray-100">
+        <div class="relative border border-gray-200 rounded flex items-center justify-center space-x-8 p-12">
+            <canvas class="bg-gray-100 flex border border-dashed border-gray-500 rounded-lg" id="main_canvas"
+                width="600" height="600"> Your browser does not support the HTML5 canvas tag. </canvas>
+            <div class="text-sm w-80 space-y-4 rounded-lg bg-white shadow-lg p-4 divider-x-2">
+                <!-- info section -->
+                <p class="font-bold ">Controller</p>
+                <section>
+                    <div
+                        class="h-auto rounded-sm border-1 border-gray-200 bg-gray-100 p-2 space-y-2 text-sm text-gray-600">
+                        <p class="text-gray-900">Point Coordinates</p>
+                        <div class="grid grid-cols-2 gap-2">
+                            <p class="col-span-1"><span class="px-1 rounded-full bg-green-300">1</span> Left-Bottom:</p>
+                            <span id="info.lb" class="col-span-1 text-right"></span>
+                            <p class="col-span-1"><span class="px-1 rounded-full bg-gray-300">2</span> Left-Top:</p>
+                            <span id="info.lt" class="col-span-1 text-right"></span>
+                            <p class="col-span-1"><span class="px-1 rounded-full bg-gray-300">3</span> Right-Top:</p>
+                            <span id="info.rt" class="col-span-1 text-right"></span>
+                           
+                            <p class="col-span-1"><span class="px-1 rounded-full bg-gray-300">4</span> Right-Bottom:</p>
+                            <span id="info.rb" class="col-span-1 text-right"></span>
+                            <p class="col-span-1"><span class="w-2 h-2 px-1 rounded-full bg-red-500 text-red-500">0</span> Pivot Point</p>
+                        </div>
+                    </div>
+                </section>
+                <!-- Position section -->
+                <section class="space-y-2">
+                    <p>Position</p>
+                    <div class="flex w-full flex-wrap items-center gap-2">
+                        <label class="flex-none">X</label>
+                        <input id="x" type="number" step="10"
+                            class="min-w-0 flex-1 rounded border border-gray-300 px-2 py-1" type="text" />
+                        <label class="flex-none">Y</label>
+                        <input id="y" type="number" step="10"
+                            class="min-w-0 flex-1 rounded border border-gray-300 px-2 py-1" type="text" />
+                    </div>
+                </section class="space-y-2">
+                <section class="space-y-2">
+                    <p>Size</p>
+                    <div class="flex w-full flex-wrap items-center gap-2">
+                        <label class="flex-none">W</label>
+                        <input id="width" type="number" step="10" value="100"
+                            class="min-w-0 flex-1 rounded border border-gray-300 px-2 py-1" type="text" />
+                        <label class="flex-none">H</label>
+                        <input id="height" type="number" step="10" value="100"
+                            class="min-w-0 flex-1 rounded border border-gray-300 px-2 py-1" type="text" />
+                    </div>
+                </section class="space-y-2">
+
+                <!-- Rotation section -->
+                <section>
+                    <p>Rotation: <span id="angle.value">0</span>°</p>
+
+                    <label for="angle"><span id="angle.value"></span></label>
+                    <input id="angle" type="range" min="0" max="360" value="0" class="w-full" type="text" />
+                    <div class="flex justify-between text-xs text-gray-600">
+                        <span>0°</span>
+                        <span>360°</span>
+
+                    </div>
+                </section>
+
+                <!-- Pivot section -->
+                <section class="space-y-2">
+                    <p>Pivot</p>
+                    <div class="flex w-full flex-wrap items-center gap-2">
+                        <label class="flex-none">X</label>
+                        <input id="pivotX" type="number" step="10"
+                            class="min-w-0 flex-1 rounded border border-gray-300 px-2 py-1" type="text" />
+                        <label class="flex-none">Y</label>
+                        <input id="pivotY" type="number" step="10"
+                            class="min-w-0 flex-1 rounded border border-gray-300 px-2 py-1" type="text" />
+                    </div>
+                </section>
+
+                <button onclick="reset()"
+                    class="w-full bg-blue-200 p-2 rounded-2xl shadow hover:bg-blue-300">Reset</button>
+            </div>
+            
+        </div>
+        <div class="fixed left-2 bottom-2  text-gray-600 p-4 text-xs">
+            <p>Name: Lieng Hongky</p>
+            <p>Email: lienghongky@gmail.com</p>
+        </div>
+    </div>
+    
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
